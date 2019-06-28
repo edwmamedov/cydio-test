@@ -29,18 +29,18 @@ public class CusipGenerator {
                 sb.append(generateCusipName());
                 sb.append(System.lineSeparator());
 
-                String prices = generatePrices().stream().map(price -> String.format("%.2f", price))
+                String prices = generatePrices().stream()
+                        .map(price -> String.format("%.2f", price))
                         .collect(joining(System.lineSeparator()));
 
                 sb.append(prices);
 
                 output.println(sb.toString());
             });
-
-            System.out.println("File " + file.getAbsolutePath() + " was generated.");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
+
+        System.out.println("File " + file.getAbsolutePath() + " was generated.");
+
     }
 
 
@@ -53,8 +53,7 @@ public class CusipGenerator {
 
         return IntStream.range(0, priceCount)
                 .mapToDouble(d -> ThreadLocalRandom.current().nextDouble(1, 10000))
-                .boxed()
-                .collect(toList());
-
+                    .boxed()
+                        .collect(toList());
     }
 }

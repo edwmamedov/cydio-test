@@ -14,6 +14,7 @@ public class Util {
 
     public static List<Pair<Integer, Integer>> findDistinctPairsEqualsTo(int[] numbers, int equalTo) {
         List<Pair<Integer, Integer>> result = new LinkedList<>();
+
         for (int i = 0; i < numbers.length; i++) {
             for (int j = 0; j < numbers.length; j++) {
                 if (numbers[i] + numbers[j] == equalTo) {
@@ -27,7 +28,7 @@ public class Util {
         }
 
         System.out.println("Pairs found: " + result.stream().map(Pair::toString).collect(joining(",")) +
-                " for array " + Arrays.toString(numbers) + "; sum of each pair == " + equalTo);
+                " for array " + Arrays.toString(numbers) + "; the sum of any pair is " + equalTo);
 
         return result;
     }

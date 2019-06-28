@@ -14,7 +14,7 @@ public class CusipClosingReader {
     private static final Pattern CUSIP_PRICE = Pattern.compile("\\d+\\.\\d{1,2}");
 
     /**
-     *  result maps cusip's name to it's closing price
+     *  result maps CUSIP's name to it's closing price
      */
     public Map<String, BigDecimal> read(File file) throws Exception {
         final Map<String, BigDecimal> result = new HashMap<>();
@@ -30,7 +30,6 @@ public class CusipClosingReader {
                     if (deque.size() != 0) {
 
                         CusipClosing cusip = readRec(deque);
-
                         result.put(cusip.getName(), cusip.getClosingPrice());
                     }
 
@@ -42,7 +41,7 @@ public class CusipClosingReader {
                     deque.push(line);
                 }
             }
-            // processing last one
+            // process the last rec
             CusipClosing cusip = readRec(deque);
             result.put(cusip.getName(), cusip.getClosingPrice());
         }
