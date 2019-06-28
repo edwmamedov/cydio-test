@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 public class CusipClosingReader {
 
     private static final Pattern CUSIP_NAME = Pattern.compile("[A-Z0-9]{8}");
-    private Pattern CUSIP_PRICE = Pattern.compile("(\\d+\\.\\d{1,2})");
+    private static final Pattern CUSIP_PRICE = Pattern.compile("\\d+\\.\\d{1,2}");
 
     /**
      *  result maps cusip name to its closing time

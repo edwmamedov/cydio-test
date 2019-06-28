@@ -11,7 +11,7 @@ import static org.junit.Assert.assertThat;
 public class UtilTest {
 
     @Test
-    public void findDistinctPairsEqualsTo() {
+    public void testFindDistinctPairsEqualsTo() {
 
         List<Pair<Integer, Integer>> result = Util.findDistinctPairsEqualsTo(new int[]{1,2,3,4,5,6}, 7);
 
