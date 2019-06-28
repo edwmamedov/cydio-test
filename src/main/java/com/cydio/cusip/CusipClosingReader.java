@@ -51,12 +51,7 @@ public class CusipClosingReader {
 
 
     private CusipClosing readRec(Deque<String> cusipRec) {
-        CusipClosing cusip = new CusipClosing(cusipRec.pollLast(), Double.valueOf(cusipRec.getFirst()));
-
-        // System.out.println(String.format("Cusip %s has closing price: %s", cusip.getName(), cusip.getClosingPrice()));
-
-        return cusip;
-
+        return new CusipClosing(cusipRec.pollLast(), Double.valueOf(cusipRec.getFirst()));
     }
 
 }

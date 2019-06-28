@@ -11,12 +11,12 @@ public class Util {
 
     public static List<Pair<Integer, Integer>> findDistinctPairsEqualsTo(int[] numbers, int equalTo) {
         List<Pair<Integer, Integer>> result = new LinkedList<>();
-        for (int left = 0; left < numbers.length + 1; left++) {
-            for (int right = 0; right < numbers.length + 1; right++) {
-                if (left + right == equalTo) {
-                    Pair<Integer, Integer> pair = Pair.of(left, right);
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = 0; j < numbers.length; j++) {
+                if (numbers[i] + numbers[j] == equalTo) {
+                    Pair<Integer, Integer> pair = Pair.of(numbers[i], numbers[j]);
 
-                    if (!result.contains(pair) && !result.contains(reverse(pair))) {
+                    if (!result.contains(pair) && !result.contains(reverse(pair)) && !pair.getLeft().equals(pair.getRight())) {
                         result.add(pair);
                     }
                 }
