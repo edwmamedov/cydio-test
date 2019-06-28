@@ -2,8 +2,11 @@ package com.cydio.problem2;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+import static java.util.stream.Collectors.joining;
 
 public class Util {
 
@@ -22,6 +25,10 @@ public class Util {
                 }
             }
         }
+
+        System.out.println("Pairs found: " + result.stream().map(Pair::toString).collect(joining(",")) +
+                " for array " + Arrays.toString(numbers) + "; sum of each pair == " + equalTo);
+
         return result;
     }
 

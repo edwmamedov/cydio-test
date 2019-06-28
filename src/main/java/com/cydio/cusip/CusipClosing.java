@@ -1,11 +1,13 @@
 package com.cydio.cusip;
 
+import java.math.BigDecimal;
+
 public class CusipClosing {
 
     private final String name;
-    private final Double closingPrice;
+    private final BigDecimal closingPrice;
 
-    public CusipClosing(String name, Double closingPrice) {
+    public CusipClosing(String name, BigDecimal closingPrice) {
         this.name = name;
         this.closingPrice = closingPrice;
     }
@@ -14,7 +16,7 @@ public class CusipClosing {
         return name;
     }
 
-    public Double getClosingPrice() {
+    public BigDecimal getClosingPrice() {
         return closingPrice;
     }
 

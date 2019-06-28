@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -13,10 +14,10 @@ public class CusipClosingReader {
     private static final Pattern CUSIP_PRICE = Pattern.compile("\\d+\\.\\d{1,2}");
 
     /**
-     *  result maps cusip name to its closing time
+     *  result maps cusip's name to it's closing price
      */
-    public Map<String, Double> read(File file) throws Exception {
-        final Map<String, Double> result = new HashMap<>();
+    public Map<String, BigDecimal> read(File file) throws Exception {
+        final Map<String, BigDecimal> result = new HashMap<>();
 
         try (LineIterator it = FileUtils.lineIterator(file, "UTF-8")) {
 
@@ -51,7 +52,7 @@ public class CusipClosingReader {
 
 
     private CusipClosing readRec(Deque<String> cusipRec) {
-        return new CusipClosing(cusipRec.pollLast(), Double.valueOf(cusipRec.getFirst()));
+        return new CusipClosing(cusipRec.pollLast(), new BigDecimal(cusipRec.getFirst()));
     }
 
 }
